@@ -311,7 +311,14 @@ var px = function px(v) {
 
   methods: {
     toggle: function toggle(event) {
-      this.toggled = !this.toggled;
+      // this.toggled = !this.toggled;
+      //Fix for toggle
+      if(this.value==0)
+        this.toggled = !this.toggled&&this.value
+      if(this.value==1)
+        this.toggled = this.toggled&&this.value
+      //end - Fix for toggle
+
       this.$emit('input', this.toggled);
       this.$emit('change', {
         value: this.toggled,
